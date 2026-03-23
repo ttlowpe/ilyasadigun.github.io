@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>What I Do | Ilyas</title>
+    <style>
+        body { 
+            font-family: "Times New Roman", serif; 
+            margin: 40px; 
+            background-color: #0d0d0d; 
+            color: #e6e6e6;
+            line-height: 1.5;
+            scroll-behavior: smooth; /* enables smooth scrolling */
+        }
+        header { text-align: center; margin-bottom: 40px; }
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #b38b59; 
+            font-weight: bold; 
+        }
+        nav a:hover {
+            color: #d4a76a;
+            transition: 0.3s ease;
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: auto; 
+            background: #1a1a1a; 
+            padding: 30px; 
+            border-radius: 8px; 
+        }
+
+        h1, h2, h3 { color: #b38b59; }
+
+        /* Fade-in on scroll */
+        .fade-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .fade-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* FULL IMAGE */
+        .full-photo {
+            width: 100%;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .full-photo img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* VIDEO */
+        .video-box {
+            width: 100%;
+            height: 350px;
+            margin: 50px 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .video-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* PROJECT BOXES */
+        .project-box {
+            background: none;
+            padding: 25px 0;
+            margin-bottom: 35px;
+            border-bottom: 1px solid #333;
+        }
+        .project-box:last-child {
+            border-bottom: none;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            color: #b38b59;
+            opacity: 0.8;
+        }
+        footer a {
+            color: #b38b59;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            color: #d4a76a;
+        }
+
+        /* BACK TO TOP BUTTON */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #b38b59;
+            color: #0d0d0d;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none; /* hidden until scroll */
+            transition: 0.3s ease;
+        }
+        #backToTop:hover {
+            background-color: #d4a76a;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="fade-scroll">
+    <h1>What I Do</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">My Story</a>
+        <a href="projects.html">What I Do</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="full-photo fade-scroll">
+        <img src="myphoto4.jpg" alt="Project Group Photo">
+    </div>
+
+    <h2 class="fade-scroll">My Work & Learning</h2>
+    <p class="fade-scroll">
+        I’m building my foundation in technology through hands‑on learning, personal projects, 
+        and real‑world problem‑solving.
+    </p>
+
+    <h3 class="fade-scroll">Current Skills</h3>
+    <ul class="fade-scroll">
+        <li>Beginner HTML, CSS, and JavaScript</li>
+        <li>SQL and database fundamentals</li>
+        <li>Python basics</li>
+        <li>Understanding system workflows and business processes</li>
+        <li>Content creation</li>
+    </ul>
+
+    <h3 class="fade-scroll">Projects I'm Working On</h3>
+
+    <div class="project-box fade-scroll">
+        <strong>Personal Website</strong><br>
+        A growing digital space built with intention and warmth.
+    </div>
+
+    <div class="project-box fade-scroll">
+        <strong>Link Checker Tool (Coming Soon)</strong><br>
+        A tool to help people verify link authenticity.
+    </div>
+
+    <div class="project-box fade-scroll">
+        <strong>Outdoor Experience Guide (Future Project)</strong><br>
+        A curated list of aesthetic outdoor activities in Austin.
+    </div>
+
+    <div class="video-box fade-scroll">
+        <video controls>
+            <source src="myvideo2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+</div>
+
+<footer class="fade-scroll">
+    <p>© 2026 Ilyas Adigun — Built with intention, growth, and creativity.</p>
+    <p>
+        <a href="https://www.linkedin.com/in/ilyas-adigun-bb069a329" target="_blank">
+            Connect on LinkedIn
+        </a>
+    </p>
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<div id="backToTop">Back to Top</div>
+
+<script>
+    // Fade-in on scroll
+    const fadeElements = document.querySelectorAll('.fade-scroll');
+
+    function checkFade() {
+        fadeElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', checkFade);
+    window.addEventListener('load', checkFade);
+
+    // Back to Top button
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
