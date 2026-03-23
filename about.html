@@ -60,7 +60,6 @@
             This space is where I share that journey — not as someone who has everything figured out, but as someone who keeps moving forward.
         </p>
 
-        <!-- myphoto3 at the bottom -->
         <img src="myphoto3.jpg" alt="About Page Photo">
     </section>
 
@@ -70,5 +69,17 @@
             <a href="https://www.linkedin.com/in/ilyas-adigun-bb069a329">LinkedIn</a>
         </p>
     </footer>
+
+    <!-- Keyboard Navigation -->
+    <script>
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "ArrowRight") {
+            window.location.href = "projects.html";
+        }
+        if (event.key === "ArrowLeft") {
+            window.location.href = "index.html";
+        }
+    });
+    </script>
 </body>
 </html>
